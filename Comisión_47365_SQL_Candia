@@ -1,9 +1,8 @@
--- Creando la base de datos
 DROP DATABASE IF EXISTS Emprendimiento_Condimento;
 CREATE DATABASE IF NOT EXISTS Emprendimiento_Condimento;
 USE Emprendimiento_Condimento;
 
--- Tabla categoria
+
 CREATE TABLE Categoria
 (      
     Categoria_ID INT NOT NULL,
@@ -12,12 +11,11 @@ CREATE TABLE Categoria
     PRIMARY KEY (Categoria_ID)
 );
 
--- Tabla Clientes
 CREATE TABLE Clientes
 (      
     Cliente_ID INT NOT NULL,
     Nombre_cliente VARCHAR(50) NOT NULL,
-    Telefono INT NOT NULL,
+    Telefono VARCHAR (50) NOT NULL,
     Direccion VARCHAR(50) NOT NULL,
     Ciudad VARCHAR(50) NOT NULL,
     Provincia VARCHAR(50) NOT NULL,
@@ -25,21 +23,19 @@ CREATE TABLE Clientes
     PRIMARY KEY (Cliente_ID)
 );
 
--- Tabla empleados
 CREATE TABLE Empleados
 (
     Empleado_ID INT NOT NULL,
     Nombre_empleado VARCHAR(20) NOT NULL,
     Apellido VARCHAR(20) NOT NULL,
-    Fecha_ingreso DATETIME NOT NULL,
+    Fecha_ingreso DATE NOT NULL,
     PRIMARY KEY(Empleado_ID)
 );
 
--- Tabla proveedores
 CREATE TABLE Proveedores(
     Proveedor_ID INT NOT NULL,
     Nombre_proveedor VARCHAR(50) NOT NULL,
-    Telefono INT NOT NULL,
+    Telefono VARCHAR(50) NOT NULL,
     Direccion VARCHAR(50) NOT NULL,
     Ciudad VARCHAR(25) NOT NULL,
     Provincia VARCHAR(25) NOT NULL,
@@ -47,7 +43,6 @@ CREATE TABLE Proveedores(
 	PRIMARY KEY (Proveedor_ID)
 );
 
--- Tabla productos
 CREATE TABLE Productos(
     Producto_ID INT NOT NULL,
     Nombre_Producto VARCHAR(50) NOT NULL,
@@ -59,7 +54,6 @@ CREATE TABLE Productos(
 	FOREIGN KEY (Proveedor_ID) REFERENCES Proveedores(Proveedor_ID)
 );
 
--- Tabla Precio
 CREATE TABLE Precio(
     Precio_ID INT NOT NULL,
     Producto_ID INT NOT NULL,
@@ -69,7 +63,6 @@ CREATE TABLE Precio(
     FOREIGN KEY(Producto_ID) REFERENCES Productos(Producto_ID)
 );
 
--- Tabla de Metodos de pago
 CREATE TABLE Metodo_Pago (
     Metodo_Pago_ID INT,
     Nombre VARCHAR(50) NOT NULL,
@@ -77,18 +70,16 @@ CREATE TABLE Metodo_Pago (
     PRIMARY KEY(Metodo_Pago_ID)
 );
 
--- Tabla de Pedido
 CREATE TABLE Pedido(
     Pedido_ID INT NOT NULL,
     Cliente_ID INT NOT NULL,
     Empleado_ID INT NOT NULL,
-    Fecha DATETIME NOT NULL,
+    Fecha DATE NOT NULL,
     PRIMARY KEY (Pedido_ID),
     FOREIGN KEY (Empleado_ID) REFERENCES Empleados (Empleado_ID),
     FOREIGN KEY (Cliente_ID) REFERENCES Clientes (Cliente_ID)
 );
 
--- Tabla que incluye detalles de los pedidos
 CREATE TABLE Detalle_Pedido(
     Detalle_pedido_ID INT NOT NULL,
     Pedido_ID INT NOT NULL,
