@@ -3,6 +3,7 @@ CREATE DATABASE IF NOT EXISTS Emprendimiento_Condimento;
 USE Emprendimiento_Condimento;
 
 
+-- creación de tabla categoria
 CREATE TABLE Categoria
 (      
     Categoria_ID INT NOT NULL,
@@ -11,6 +12,7 @@ CREATE TABLE Categoria
     	PRIMARY KEY (Categoria_ID)
 );
 
+-- creación de tabla clientes
 CREATE TABLE Clientes
 (      
     Cliente_ID INT NOT NULL,
@@ -23,6 +25,7 @@ CREATE TABLE Clientes
     	PRIMARY KEY (Cliente_ID)
 );
 
+-- creación de tabla empleados
 CREATE TABLE Empleados
 (
     Empleado_ID INT NOT NULL,
@@ -33,6 +36,7 @@ CREATE TABLE Empleados
     	PRIMARY KEY(Empleado_ID)
 );
 
+-- tabla de los proveedores
 CREATE TABLE Proveedores(
     Proveedor_ID INT NOT NULL,
     Nombre_proveedor VARCHAR(50) NOT NULL,
@@ -44,6 +48,7 @@ CREATE TABLE Proveedores(
 	PRIMARY KEY (Proveedor_ID)
 );
 
+-- creando tabla productos
 CREATE TABLE Productos(
     Producto_ID INT NOT NULL,
     Nombre_Producto VARCHAR(50) NOT NULL,
@@ -55,6 +60,7 @@ CREATE TABLE Productos(
 	FOREIGN KEY (Proveedor_ID) REFERENCES Proveedores(Proveedor_ID)
 );
 
+-- tabla con los precios
 CREATE TABLE Precio(
     Precio_ID INT NOT NULL,
     Producto_ID INT NOT NULL,
@@ -64,6 +70,7 @@ CREATE TABLE Precio(
     	FOREIGN KEY(Producto_ID) REFERENCES Productos(Producto_ID)
 );
 
+-- tabla con los métodos de pago
 CREATE TABLE Metodo_Pago (
     Metodo_Pago_ID INT,
     Nombre VARCHAR(50) NOT NULL,
@@ -71,6 +78,7 @@ CREATE TABLE Metodo_Pago (
     	PRIMARY KEY(Metodo_Pago_ID)
 );
 
+-- creación de la tabla pedido
 CREATE TABLE Pedido(
     Pedido_ID INT NOT NULL,
     Cliente_ID INT NOT NULL,
@@ -81,6 +89,7 @@ CREATE TABLE Pedido(
     	FOREIGN KEY (Cliente_ID) REFERENCES Clientes (Cliente_ID)
 );
 
+-- creando la tabla con los detalles de los pedidos
 CREATE TABLE Detalle_Pedido(
     Detalle_pedido_ID INT NOT NULL,
     Pedido_ID INT NOT NULL,
