@@ -8,7 +8,7 @@ CREATE TABLE Categoria
     Categoria_ID INT NOT NULL,
     Nombre_Categoria VARCHAR(50) NOT NULL,
     Descripcion VARCHAR(255) NOT NULL,
-    PRIMARY KEY (Categoria_ID)
+    	PRIMARY KEY (Categoria_ID)
 );
 
 CREATE TABLE Clientes
@@ -20,7 +20,7 @@ CREATE TABLE Clientes
     Ciudad VARCHAR(50) NOT NULL,
     Provincia VARCHAR(50) NOT NULL,
     Email VARCHAR(50) NOT NULL,
-    PRIMARY KEY (Cliente_ID)
+    	PRIMARY KEY (Cliente_ID)
 );
 
 CREATE TABLE Empleados
@@ -29,8 +29,8 @@ CREATE TABLE Empleados
     Nombre_empleado VARCHAR(20) NOT NULL,
     Apellido VARCHAR(20) NOT NULL,
     Fecha_ingreso DATE NOT NULL,
-    salario DECIMAL NOT NULL,
-    PRIMARY KEY(Empleado_ID)
+    salario DECIMAL(4,2) NOT NULL,
+    	PRIMARY KEY(Empleado_ID)
 );
 
 CREATE TABLE Proveedores(
@@ -60,15 +60,15 @@ CREATE TABLE Precio(
     Producto_ID INT NOT NULL,
     Precio_vigencia_inicial FLOAT,
     Precio_vigencia_final FLOAT,
-    PRIMARY KEY(Precio_ID),
-    FOREIGN KEY(Producto_ID) REFERENCES Productos(Producto_ID)
+    	PRIMARY KEY(Precio_ID),
+    	FOREIGN KEY(Producto_ID) REFERENCES Productos(Producto_ID)
 );
 
 CREATE TABLE Metodo_Pago (
     Metodo_Pago_ID INT,
     Nombre VARCHAR(50) NOT NULL,
     Descripcion VARCHAR(100),
-    PRIMARY KEY(Metodo_Pago_ID)
+    	PRIMARY KEY(Metodo_Pago_ID)
 );
 
 CREATE TABLE Pedido(
@@ -76,9 +76,9 @@ CREATE TABLE Pedido(
     Cliente_ID INT NOT NULL,
     Empleado_ID INT NOT NULL,
     Fecha DATE NOT NULL,
-    PRIMARY KEY (Pedido_ID),
-    FOREIGN KEY (Empleado_ID) REFERENCES Empleados (Empleado_ID),
-    FOREIGN KEY (Cliente_ID) REFERENCES Clientes (Cliente_ID)
+    	PRIMARY KEY (Pedido_ID),
+    	FOREIGN KEY (Empleado_ID) REFERENCES Empleados (Empleado_ID),
+    	FOREIGN KEY (Cliente_ID) REFERENCES Clientes (Cliente_ID)
 );
 
 CREATE TABLE Detalle_Pedido(
@@ -87,6 +87,7 @@ CREATE TABLE Detalle_Pedido(
     Producto_ID INT NOT NULL,
     Cantidad INT NOT NULL,
     Metodo_Pago_ID INT NOT NULL,
+	PRIMARY KEY (Detalle_pedido_ID),
 	FOREIGN KEY (Pedido_ID) REFERENCES Pedido (Pedido_ID),
 	FOREIGN KEY (Producto_ID) REFERENCES Productos (Producto_ID),
 	FOREIGN KEY (Metodo_Pago_ID) REFERENCES Metodo_Pago (Metodo_Pago_ID)
