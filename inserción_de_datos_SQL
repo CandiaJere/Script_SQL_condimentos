@@ -1,3 +1,5 @@
+USE Emprendimiento_Condimento;
+
 -- inserción de datos de Categoría
 INSERT INTO CATEGORIA
 VALUES (1,'especia','sustancia vegetal. Suelen ser más intensas en sabor y aroma que las hierbas y se utilizan en pequeñas cantidades debido a su potencia.'),
