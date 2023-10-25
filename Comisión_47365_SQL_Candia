@@ -32,7 +32,7 @@ CREATE TABLE Empleados
     Nombre_empleado VARCHAR(20) NOT NULL,
     Apellido VARCHAR(20) NOT NULL,
     Fecha_ingreso DATE NOT NULL,
-    salario DECIMAL(4,2) NOT NULL,
+    salario DECIMAL(10,2) NOT NULL,
     	PRIMARY KEY(Empleado_ID)
 );
 
