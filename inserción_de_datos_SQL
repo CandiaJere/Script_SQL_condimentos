@@ -22,11 +22,11 @@ VALUES (1,'Chino',116574326,'Calle falsa 123','springfield','Buenos Aires','chin
 
 -- inserción de datos de la tabla Empleados
 INSERT INTO EMPLEADOS
-VALUES (31685342,'Rosa','delejos','2015-08-04',180.3),
-(38559639,'Mario','castañeda','2020-05-09',165.6),
-(30559112,'Roberto','carlos','2018-12-01',174.8),
-(40236001,'marcelo','rodriguez','2020-02-21',158.1),
-(37567187,'Ivana','matos','2019-11-03',164.2);
+VALUES (31685342,'Rosa','delejos','2015-08-04',180000.30),
+(38559639,'Mario','castañeda','2020-05-09',165000.60),
+(30559112,'Roberto','carlos','2018-12-01',174000.80),
+(40236001,'marcelo','rodriguez','2020-02-21',158000.10),
+(37567187,'Ivana','matos','2019-11-03',164000.20);
 
 -- inserción de proveedores
 INSERT INTO PROVEEDORES
