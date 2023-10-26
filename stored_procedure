@@ -1,0 +1,10 @@
+DELIMITER $$
+CREATE PROCEDURE calculo_precio_total (IN precio_unitario DECIMAL(10,2), in CANTIDAD int, IN descuento DECIMAL(10,2))
+	BEGIN 
+		DECLARE precio_total DECIMAL(10,2);
+        SET precio_total = precio_unitario * cantidad * (1 - descuento);
+        select precio_total as 'precio_total';
+	end $$
+
+
+CALL calculo_precio_total (10.00,5,0.1);
