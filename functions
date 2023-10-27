@@ -1,0 +1,46 @@
+-- función para saber el nombre del cliente
+
+DELIMITER $$
+
+CREATE FUNCTION ObtenerNombreCliente(PedidoID INT) RETURNS VARCHAR(50)
+BEGIN
+    DECLARE NombreCliente VARCHAR(50);
+    
+    SELECT c.Nombre_cliente INTO NombreCliente
+    FROM Clientes c
+    JOIN Pedido p ON c.Cliente_ID = p.Cliente_ID
+    WHERE p.Pedido_ID = PedidoID;
+    
+    RETURN NombreCliente;
+END $$
+
+DELIMITER ;
+
+
+-- SELECT ObtenerNombreCliente(1) AS NombreClienteDelPedido;
+
+
+-- calculo promedio 
+
+DELIMITER $$
+
+CREATE FUNCTION CalcularPromedio(columna DECIMAL(10,2), tabla VARCHAR(255)) RETURNS DECIMAL(10,2)
+BEGIN
+    DECLARE total DECIMAL(10,2);
+    DECLARE cantidad INT;
+    
+    -- Calcula la suma de la columna
+    SELECT SUM(columna) INTO total FROM tabla;
+    
+    -- Calcula la cantidad de filas en la tabla
+    SELECT COUNT(*) INTO cantidad FROM tabla;
+    
+    -- Calcula el promedio
+    IF cantidad > 0 THEN
+        RETURN total / cantidad;
+    ELSE
+        RETURN NULL; -- Para evitar la división por cero
+    END IF;
+END $$
+
+DELIMITER ;
