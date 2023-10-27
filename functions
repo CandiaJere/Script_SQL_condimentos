@@ -20,4 +20,21 @@ DELIMITER ;
 -- SELECT ObtenerNombreCliente(1) AS NombreClienteDelPedido;
 
 
+ -- calculo promedio por categoria
 
+DELIMITER $$
+
+CREATE FUNCTION CalcularPrecioPromedioEnCategoria(categoria_id INT) RETURNS FLOAT
+BEGIN
+    DECLARE precio_promedio FLOAT;
+
+    SELECT AVG(Precio) INTO precio_promedio
+    FROM Productos
+    WHERE Categoria_ID = categoria_id;
+
+    RETURN precio_promedio;
+END $$
+
+DELIMITER ;
+
+-- SELECT CalcularPrecioPromedioEnCategoria(1);
