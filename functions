@@ -20,27 +20,4 @@ DELIMITER ;
 -- SELECT ObtenerNombreCliente(1) AS NombreClienteDelPedido;
 
 
--- calculo promedio 
 
-DELIMITER $$
-
-CREATE FUNCTION CalcularPromedio(columna DECIMAL(10,2), tabla VARCHAR(255)) RETURNS DECIMAL(10,2)
-BEGIN
-    DECLARE total DECIMAL(10,2);
-    DECLARE cantidad INT;
-    
-    -- Calcula la suma de la columna
-    SELECT SUM(columna) INTO total FROM tabla;
-    
-    -- Calcula la cantidad de filas en la tabla
-    SELECT COUNT(*) INTO cantidad FROM tabla;
-    
-    -- Calcula el promedio
-    IF cantidad > 0 THEN
-        RETURN total / cantidad;
-    ELSE
-        RETURN NULL; -- Para evitar la división por cero
-    END IF;
-END $$
-
-DELIMITER ;
