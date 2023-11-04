@@ -20,7 +20,6 @@ CREATE TRIGGER precio_eliminado
 AFTER DELETE ON Precio
 FOR EACH ROW
 BEGIN
-    -- Registro de la información después de la eliminación
     INSERT INTO Registro_Precios_Eliminados (Producto_ID, Precio_Eliminado)
     VALUES (OLD.Producto_ID, OLD.Precio_vigencia_inicial);
 END; $$
@@ -29,9 +28,10 @@ DELIMITER ;
 
 
 
--- Crear la tabla de registro
+-- trigger de registro de productos 
+
 DROP TABLE IF EXISTS registro_producto;
-CREATE TABLE registro_producto; (
+CREATE TABLE registro_producto (
     accion_realizada VARCHAR(10) NOT NULL,
     producto_id INT NOT NULL,
     nombre_producto VARCHAR(50),
@@ -42,6 +42,7 @@ CREATE TABLE registro_producto; (
 );
 
 -- Crear un trigger after para insertar registros en la tabla de registro
+DROP TRIGGER IF EXISTS log_productos;
 DELIMITER //
 CREATE TRIGGER log_productos
 AFTER INSERT ON productos
