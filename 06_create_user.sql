@@ -5,7 +5,7 @@ CREATE USER 'usuario_lectura'@'localhost' IDENTIFIED BY 'abcd1234';
 GRANT SELECT ON emprendimiento_condimento.* TO 'usuario_lectura'@'localhost';
 
 -- elimina el permiso para eliminar registro de la tabla.
-REVOKE DROP ON emprendimiento_condimento.* FROM 'usuario_lectura'@'localhost';
+REVOKE DELETE ON emprendimiento_condimento.* FROM 'usuario_lectura'@'localhost';
 
 
 
