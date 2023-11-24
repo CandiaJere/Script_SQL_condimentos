@@ -12,7 +12,7 @@ REVOKE DELETE ON emprendimiento_condimento.* FROM 'usuario_lectura'@'localhost';
 
 
 -- usuario con permiso de lectura, inserción y modificación de datos.
-CREATE USER 'usuario_escritura'@'localhost' IDENTIFIED BY '1234567890';
+CREATE USER 'usuario_lectura_escritura'@'localhost' IDENTIFIED BY '1234567890';
 
 -- sentencia GRANT que concede permisos de lectura, inserción y modificación.
 GRANT SELECT, INSERT, UPDATE ON emprendimiento_condimento.* TO 'usuario_lectura_escritura'@'localhost';
