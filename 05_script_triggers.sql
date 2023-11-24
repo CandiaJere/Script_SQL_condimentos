@@ -1,14 +1,22 @@
 
 -- trigger con registro de inserción de datos relacionado con productos y precios
 
+DROP TABLE IF EXISTS nuevos_precios;
+CREATE TABLE nuevos_precios (
+    producto_id INT NOT NULL,
+    precio_nuevo FLOAT,
+    fecha TIMESTAMP
+);
+
+
 DROP TRIGGER IF EXISTS precio_nuevo;
 DELIMITER $$
 CREATE TRIGGER precio_nuevo
 BEFORE INSERT ON precio
 FOR EACH ROW
 BEGIN
-    INSERT INTO Registro_Cambios_Precios (Producto_ID, Precio_Anterior)
-    VALUES (NEW.Producto_ID, NEW.Precio_vigencia_inicial);
+    INSERT INTO Nuevos_Precios (Producto_id, Precio_nuevo, fecha)
+    VALUES (NEW.Producto_ID, NEW.Precio_vigencia_inicial, NOW());
 END;
 $$
 DELIMITER ;
