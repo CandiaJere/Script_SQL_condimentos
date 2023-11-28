@@ -25,7 +25,7 @@ savepoint lote_4
 -- inserción de los 4 registros restantes.
 (15,'comino',5,1,80),
 (16,'salsa de soja',3,5,200),
-(17,'pimineta blanca',2,2,155),
+(17,'pimienta blanca',2,2,155),
 (18,'cilantro',4,3,95)
 ;
 
