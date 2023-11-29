@@ -16,10 +16,19 @@ BEFORE INSERT ON precio
 FOR EACH ROW
 BEGIN
     INSERT INTO Nuevos_Precios (Producto_id, Precio_nuevo, fecha)
-    VALUES (NEW.Producto_ID, NEW.Precio_vigencia_inicial, NOW());
+    VALUES (NEW.Producto_ID, NEW.Precio_vigencia_final, NOW());
 END;
 $$
 DELIMITER ;
+
+
+
+DROP TABLE IF EXISTS Registro_Precios_Eliminados;
+CREATE TABLE Registro_Precios_Eliminados (
+    producto_id INT NOT NULL,
+    precio_eliminado FLOAT,
+    fecha TIMESTAMP
+);
 
 
 DROP TRIGGER IF EXISTS precio_eliminado;
