@@ -1,5 +1,5 @@
 
--- trigger con registro de inserción de datos relacionado con productos y precios
+-- creacion de la tabla para almacenar los nuevos valores de los productos
 
 DROP TABLE IF EXISTS nuevos_precios;
 CREATE TABLE nuevos_precios (
@@ -9,6 +9,7 @@ CREATE TABLE nuevos_precios (
 );
 
 
+-- trigger con registro de inserción de datos relacionado con productos y precios
 DROP TRIGGER IF EXISTS precio_nuevo;
 DELIMITER $$
 CREATE TRIGGER precio_nuevo
@@ -22,6 +23,7 @@ $$
 DELIMITER ;
 
 
+-- creacion de la tabla de auditoria donde se guardaran los precios eliminados o modificados
 
 DROP TABLE IF EXISTS Registro_Precios_Eliminados;
 CREATE TABLE Registro_Precios_Eliminados (
@@ -30,6 +32,9 @@ CREATE TABLE Registro_Precios_Eliminados (
     fecha TIMESTAMP
 );
 
+
+
+-- trigger que se activa cuando los precios de los productos se vean eliminados o modificados
 
 DROP TRIGGER IF EXISTS precio_eliminado;
 DELIMITER $$
@@ -41,7 +46,6 @@ BEGIN
     VALUES (OLD.Producto_ID, OLD.Precio_vigencia_inicial);
 END; $$
 DELIMITER ;
-
 
 
 
@@ -57,6 +61,7 @@ CREATE TABLE registro_producto (
     precio FLOAT,
     fecha TIMESTAMP
 );
+
 
 -- Crear un trigger after para insertar registros en la tabla de registro
 DROP TRIGGER IF EXISTS log_productos;
