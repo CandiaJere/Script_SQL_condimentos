@@ -1,3 +1,4 @@
+-- Crear la base de datos
 DROP DATABASE IF EXISTS Emprendimiento_Condimento;
 CREATE DATABASE IF NOT EXISTS Emprendimiento_Condimento;
 USE Emprendimiento_Condimento;
