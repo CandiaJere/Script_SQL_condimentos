@@ -1,5 +1,4 @@
 -- calculo precio total
-
 DELIMITER $$
 CREATE PROCEDURE
   calculo_precio_total (IN precio_unitario DECIMAL(10,2),
