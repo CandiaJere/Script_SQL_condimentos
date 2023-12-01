@@ -1,5 +1,4 @@
 -- función para saber el nombre del cliente
-
 DELIMITER $$
 
 CREATE FUNCTION ObtenerNombreCliente(PedidoID INT) RETURNS VARCHAR(50)
@@ -22,7 +21,6 @@ DELIMITER ;
 
 
  -- calculo promedio por categoria
-
 DELIMITER $$
 
 CREATE FUNCTION CalcularPrecioPromedioEnCategoria(categoria_id INT) RETURNS FLOAT
