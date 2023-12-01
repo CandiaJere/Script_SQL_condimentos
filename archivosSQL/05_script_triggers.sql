@@ -1,6 +1,5 @@
 
 -- creacion de la tabla para almacenar los nuevos valores de los productos
-
 DROP TABLE IF EXISTS nuevos_precios;
 CREATE TABLE nuevos_precios (
     producto_id INT NOT NULL,
@@ -24,7 +23,6 @@ DELIMITER ;
 
 
 -- creacion de la tabla de auditoria donde se guardaran los precios eliminados o modificados
-
 DROP TABLE IF EXISTS Registro_Precios_Eliminados;
 CREATE TABLE Registro_Precios_Eliminados (
     producto_id INT NOT NULL,
@@ -35,7 +33,6 @@ CREATE TABLE Registro_Precios_Eliminados (
 
 
 -- trigger que se activa cuando los precios de los productos se vean eliminados o modificados
-
 DROP TRIGGER IF EXISTS precio_eliminado;
 DELIMITER $$
 CREATE TRIGGER precio_eliminado
@@ -50,7 +47,6 @@ DELIMITER ;
 
 
 -- trigger de registro de productos 
-
 DROP TABLE IF EXISTS registro_producto;
 CREATE TABLE registro_producto (
     accion_realizada VARCHAR(10) NOT NULL,
