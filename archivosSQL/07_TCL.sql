@@ -1,5 +1,4 @@
 -- empieza la transacción En primera tabla
-
 START TRANSACTION;
 -- se elimina el cliente id 7 'mayorista bufalo'
 DELETE FROM clientes WHERE cliente_id = 7;
