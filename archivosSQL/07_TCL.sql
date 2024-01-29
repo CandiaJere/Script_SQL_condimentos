@@ -36,3 +36,9 @@ savepoint lote_8
 -- Regresar al punto de guardado de los primeros cuatro registros
 
 -- ROLLBACK TO lote_4;
+
+
+-- regresar al punto de guardado de los ultimos registros incorporados
+
+-- ROLLBACK TO lote_8;
+
